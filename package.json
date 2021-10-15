@@ -1,0 +1,52 @@
+{
+    "title": "Drangon Street",
+    "name": "dragon-street-nft",
+    "version": "1.0.8",
+    "scripts": {
+        "build": "npm run clean && npm run build:pug && npm run build:scss && npm run build:scripts && npm run build:assets",
+        "build:assets": "node scripts/build-assets.js",
+        "build:pug": "node scripts/build-pug.js",
+        "build:scripts": "node scripts/build-scripts.js",
+        "build:scss": "node scripts/build-scss.js",
+        "clean": "node scripts/clean.js",
+        "start": "npm run build && node scripts/start.js",
+        "start:debug": "npm run build && node scripts/start-debug.js",
+        "start:server": "node server/app.js",
+        "start:project": "npm run build && node server/app.js",
+        "contract:compile": "npx hardhat compile",
+        "contract:deploy": "npx hardhat run nft_scripts/deploy.js --network ropsten",
+        "nft:mint": "node nft_scripts/mint-nft.js"
+    },
+    "description": "Drangon Street NFTs",
+    "keywords": [
+        "nft",
+        "blockchain",
+        "etherium"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/hcoz/dragon-street.git"
+    },
+    "dependencies": {
+        "@alch/alchemy-web3": "^1.1.4",
+        "@openzeppelin/contracts": "^4.3.2",
+        "bootstrap": "5.1.1",
+        "dotenv": "^10.0.0",
+        "express": "^4.17.1"
+    },
+    "devDependencies": {
+        "@nomiclabs/hardhat-ethers": "^2.0.2",
+        "autoprefixer": "10.3.6",
+        "browser-sync": "2.27.5",
+        "chokidar": "3.5.2",
+        "concurrently": "6.2.2",
+        "ethers": "^5.0.0",
+        "hardhat": "^2.6.5",
+        "postcss": "8.3.8",
+        "prettier": "2.4.1",
+        "pug": "3.0.2",
+        "sass": "1.42.1",
+        "shelljs": "0.8.4",
+        "upath": "2.0.1"
+    }
+}

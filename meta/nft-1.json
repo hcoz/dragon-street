@@ -1,0 +1,19 @@
+{
+    "attributes": [
+        {
+            "trait_type": "Hat color",
+            "value": "Orange"
+        },
+        {
+            "trait_type": "Skin color",
+            "value": "Pale"
+        },
+        {
+            "trait_type": "Background color",
+            "value": "Blur Pink"
+        }
+    ],
+    "description": "The magic mushroom.",
+    "image": "https://gateway.pinata.cloud/ipfs/Qme129x2yDV7xkuaRg3cSRftXbLBSsgifBUmQum8vSBRd2",
+    "name": "F.S."
+}
