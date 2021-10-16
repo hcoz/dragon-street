@@ -64,8 +64,13 @@ html(lang='en')
                         a.btn.btn-primary.btn-xl.text-uppercase(href='#mint') Mint a NFT
 
         // About
-        section#about.page-section
-            .container
+        section#about.page-section.py-3
+            .row.px-1
+                each val in [1, 2, 3, 4, 5, 6]
+                    .col-lg-2.col-sm-2.col-xs-2.px-1
+                        .portfolio-item
+                            img.img-fluid(src='assets/img/portfolio/' + val + '.jpeg', alt='portfolio item')
+            .container.my-5
                 .text-center
                     h2.section-heading.text-uppercase About
                     h3.section-subheading.text-muted Dragon who!
@@ -74,6 +79,11 @@ html(lang='en')
                         h4.my-3 Ds is a collection of 10000 Dragon Street Dudes.
                         p.text Long long time ago, they were hanging around flaming Dragon Street and now, they are here to burn the Eth Blockhain with you
                         p.text-muted Lets get ready to join the adventure with 10000 unique individual Nft heroes
+            .row.px-1
+                each val in [7, 8, 9, 10, 11, 12]
+                    .col-lg-2.col-sm-3.px-1
+                        .portfolio-item
+                            img.img-fluid(src='assets/img/portfolio/' + val + '.jpeg', alt='portfolio item')
                 //- .row.text-center
                 //-     .col-md-4
                 //-         span.fa-stack.fa-4x
@@ -106,51 +116,39 @@ html(lang='en')
                     p.text Ds Heroes are consist of Head, Face, Fur, Eye, Background traits over 150 traits showing their personalities
                     p.text All of them are ready to heat up but some heroes are rarer then others!
                 .row
-                    each val in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
-                        .col-lg-2.col-sm-3.mb-2
-                            // Portfolio item
-                            .portfolio-item
-                                //- a.portfolio-link(data-bs-toggle='modal', href='#portfolioModal' + val)
-                                //-     .portfolio-hover
-                                //-         .portfolio-hover-content
-                                //-             i.fas.fa-plus.fa-3x
-                                img.img-fluid(src='assets/img/portfolio/' + val + '.jpeg', alt='portfolio item')
-                                .portfolio-caption
-                                    //- .portfolio-caption-heading Threads
-                                    .portfolio-caption-subheading.text-muted Dragon
-                    //- .col-lg-4.col-sm-6.mb-4
-                    //-     // Portfolio item 2
-                    //-     .portfolio-item
-                    //-         a.portfolio-link(data-bs-toggle='modal', href='#portfolioModal2')
-                    //-             .portfolio-hover
-                    //-                 .portfolio-hover-content
-                    //-                     i.fas.fa-plus.fa-3x
-                    //-             img.img-fluid(src='assets/img/portfolio/2.jpeg', alt='...')
-                    //-         .portfolio-caption
-                    //-             .portfolio-caption-heading Explore
-                    //-             .portfolio-caption-subheading.text-muted Graphic Design
-                    //- .col-lg-4.col-sm-6.mb-4
-                    //-     // Portfolio item 3
-                    //-     .portfolio-item
-                    //-         a.portfolio-link(data-bs-toggle='modal', href='#portfolioModal3')
-                    //-             .portfolio-hover
-                    //-                 .portfolio-hover-content
-                    //-                     i.fas.fa-plus.fa-3x
-                    //-             img.img-fluid(src='assets/img/portfolio/3.jpeg', alt='...')
-                    //-         .portfolio-caption
-                    //-             .portfolio-caption-heading Finish
-                    //-             .portfolio-caption-subheading.text-muted Identity
-                    //- .col-lg-4.col-sm-6.mb-4.mb-lg-0
-                    //-     // Portfolio item 4
-                    //-     .portfolio-item
-                    //-         a.portfolio-link(data-bs-toggle='modal', href='#portfolioModal4')
-                    //-             .portfolio-hover
-                    //-                 .portfolio-hover-content
-                    //-                     i.fas.fa-plus.fa-3x
-                    //-             img.img-fluid(src='assets/img/portfolio/4.jpeg', alt='...')
-                    //-         .portfolio-caption
-                    //-             .portfolio-caption-heading Lines
-                    //-             .portfolio-caption-subheading.text-muted Branding
+                    .col-lg-4.col-sm-6.mb-4
+                        // Dragon 1
+                        .portfolio-item
+                            a.portfolio-link(href='#!')
+                                .portfolio-hover
+                                    .portfolio-hover-content
+                                        i.fas.fa-dragon.fa-3x
+                                img.img-fluid(src='assets/img/portfolio/1.jpeg', alt='...')
+                            .portfolio-caption
+                                .portfolio-caption-heading Warrior
+                                .portfolio-caption-subheading.text-muted Dragon 1
+                    .col-lg-4.col-sm-6.mb-4
+                        // Dragon 2
+                        .portfolio-item
+                            a.portfolio-link(href='#!')
+                                .portfolio-hover
+                                    .portfolio-hover-content
+                                        i.fas.fa-dragon.fa-3x
+                                img.img-fluid(src='assets/img/portfolio/2.jpeg', alt='...')
+                            .portfolio-caption
+                                .portfolio-caption-heading Finish
+                                .portfolio-caption-subheading.text-muted Dragon 2
+                    .col-lg-4.col-sm-6.mb-4.mb-lg-0
+                        // Dragon 3
+                        .portfolio-item
+                            a.portfolio-link(href='#!')
+                                .portfolio-hover
+                                    .portfolio-hover-content
+                                        i.fas.fa-dragon.fa-3x
+                                img.img-fluid(src='assets/img/portfolio/3.jpeg', alt='...')
+                            .portfolio-caption
+                                .portfolio-caption-heading Lines
+                                .portfolio-caption-subheading.text-muted Dragon 3
                     //- .col-lg-4.col-sm-6.mb-4.mb-sm-0
                     //-     // Portfolio item 5
                     //-     .portfolio-item
