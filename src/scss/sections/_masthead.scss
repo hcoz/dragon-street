@@ -28,6 +28,11 @@ header.masthead {
         margin-bottom: 2rem;
         font-family: $headings-font-family;
     }
+
+    .masthead-giphy {
+        width: 50%;
+        height: auto;
+    }
 }
 
 @include media-breakpoint-up(md) {

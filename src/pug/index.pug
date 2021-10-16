@@ -34,8 +34,8 @@ html(lang='en')
                 button.navbar-toggler(type='button', data-bs-toggle='collapse', data-bs-target='#navbarResponsive', aria-controls='navbarResponsive', aria-expanded='false', aria-label='Toggle navigation')
                     | Menu
                     i.fas.fa-bars.ms-1
-                #navbarResponsive.collapse.navbar-collapse
-                    ul.navbar-nav.text-uppercase.ms-auto.py-4.py-lg-0
+                #navbarResponsive.collapse.navbar-collapse.justify-content-between
+                    ul.navbar-nav.text-uppercase.mr-auto
                         li.nav-item
                             a.nav-link(href='#about') About
                         li.nav-item
@@ -46,12 +46,22 @@ html(lang='en')
                             a.nav-link(href='#faq') FAQ
                         //- li.nav-item
                         //-     a.nav-link(href='#contact') Contact
+                    .my-3.my-lg-0
+                        a.btn.btn-dark.btn-social.mx-2(href='https://twitter.com/DragonStreetNFT', target='_blank')
+                            i.fab.fa-twitter
+                        a.btn.btn-dark.btn-social.mx-2(href='https://www.instagram.com/dragonstreetnft', target='_blank')
+                            i.fab.fa-instagram
         // Masthead
         header.masthead
             .container
-                .masthead-subheading Welcome!
-                .masthead-heading.text-uppercase Dragon Street
-                a.btn.btn-primary.btn-xl.text-uppercase(href='#mint') Mint a NFT
+                .row
+                    .col-md-6
+                        .masthead-giphy
+                            img.rounded-circle.img-fluid(src='assets/img/about/1.jpeg', alt='...')
+                    .col-md-6
+                        .masthead-subheading Welcome!
+                        .masthead-heading.text-uppercase Dragon Street
+                        a.btn.btn-primary.btn-xl.text-uppercase(href='#mint') Mint a NFT
 
         // About
         section#about.page-section

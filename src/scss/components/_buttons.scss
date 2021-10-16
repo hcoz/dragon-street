@@ -21,7 +21,8 @@
     justify-content: center;
     padding: 0;
     border-radius: 100%;
-    background-color: #0288d1;
+    background-color: $social-blue;
+    border-color: $social-blue;
 }
 
 .btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
