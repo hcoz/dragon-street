@@ -23,3 +23,8 @@
     border-radius: 100%;
     background-color: #0288d1;
 }
+
+.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+    background-color: $logo-purple;
+    border-color: $logo-purple;
+}
