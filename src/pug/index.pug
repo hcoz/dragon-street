@@ -53,10 +53,10 @@ html(lang='en')
         header.masthead
             .container
                 .row
-                    .col-md-6
+                    .col-md-6.col-sm-12.d-flex.justify-content-center.mb-5
                         .masthead-giphy
                             img.rounded-circle.img-fluid(src='assets/img/dragon.gif', alt='...')
-                    .col-md-6
+                    .col-md-6.col-sm-12
                         .masthead-subheading Welcome!
                         .masthead-heading.text-uppercase Dragon Street
                         a.btn.btn-mint.btn-xl.text-uppercase(href='#mint') Mint a NFT
@@ -154,11 +154,15 @@ html(lang='en')
         // Rarity
         section#portfolio.page-section
             .container
-                .text-center
-                    h2.section-heading.text-uppercase Rarity
-                    h3.section-subheading.text-muted If you want to rule the streets, go to Eth Blockchain and choose your hero
-                    p.text Ds Heroes are consist of Head, Face, Fur, Eye, Background traits over 150 traits showing their personalities
-                    p.text All of them are ready to heat up but some heroes are rarer then others!
+                .row
+                    .col-lg-4.col-sm-6.mb-4
+                        img.img-fluid(src='assets/img/questionmark.gif', alt='rarity question mark')
+                    .col-lg-8.col-sm-6.mb-4
+                        .text-center
+                            h2.section-heading.text-uppercase Rarity
+                            h3.section-subheading.text-muted If you want to rule the streets, go to Eth Blockchain and choose your hero
+                            p.text Ds Heroes are consist of Head, Face, Fur, Eye, Background traits over 150 traits showing their personalities
+                            p.text All of them are ready to heat up but some heroes are rarer then others!
                 .row
                     .col-lg-4.col-sm-6.mb-4
                         // Dragon 1
@@ -167,7 +171,7 @@ html(lang='en')
                                 .portfolio-hover
                                     .portfolio-hover-content
                                         i.fas.fa-dragon.fa-3x
-                                img.img-fluid(src='assets/img/portfolio/1.jpeg', alt='...')
+                                img.img-fluid(src='assets/img/portfolio/1.jpeg', alt='rarity 1')
                             .portfolio-caption
                                 .portfolio-caption-heading Warrior
                                 .portfolio-caption-subheading.text-muted Dragon 1
@@ -178,7 +182,7 @@ html(lang='en')
                                 .portfolio-hover
                                     .portfolio-hover-content
                                         i.fas.fa-dragon.fa-3x
-                                img.img-fluid(src='assets/img/portfolio/2.jpeg', alt='...')
+                                img.img-fluid(src='assets/img/portfolio/2.jpeg', alt='rarity 2')
                             .portfolio-caption
                                 .portfolio-caption-heading Finish
                                 .portfolio-caption-subheading.text-muted Dragon 2
@@ -189,7 +193,7 @@ html(lang='en')
                                 .portfolio-hover
                                     .portfolio-hover-content
                                         i.fas.fa-dragon.fa-3x
-                                img.img-fluid(src='assets/img/portfolio/3.jpeg', alt='...')
+                                img.img-fluid(src='assets/img/portfolio/3.jpeg', alt='rarity 3')
                             .portfolio-caption
                                 .portfolio-caption-heading Lines
                                 .portfolio-caption-subheading.text-muted Dragon 3
