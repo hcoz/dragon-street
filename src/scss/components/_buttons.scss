@@ -25,7 +25,13 @@
     border-color: $social-blue;
 }
 
-.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
-    background-color: $logo-purple;
-    border-color: $logo-purple;
+.btn-mint, .btn-mint:visited {
+    background-color: $skate-red;
+    border-color: $skate-red;
+    color: #ffffff;
+}
+
+.btn-mint:hover, .btn-mint:active {
+    opacity: 0.8;
+    color: #ffffff;
 }
