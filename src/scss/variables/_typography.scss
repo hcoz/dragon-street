@@ -28,7 +28,7 @@ sans-serif,
 // via Google fonts in the head of src/pug/index.pug.
 // The fonts listed afterwards are fallbacks.
 
-$headings-font-family: "Ubuntu",
+$headings-font-family: "Nunito",
 // $headings-font-family: "Montserrat",
 -apple-system,
 BlinkMacSystemFont,
@@ -54,3 +54,5 @@ $headings-letter-spacing: 0.0625em;
 // Override default Bootstrap line height variables
 
 $line-height-lg: 1.75;
+
+$font-size-base: 1.2rem;
