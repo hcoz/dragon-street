@@ -1,9 +1,8 @@
 //
 // Scripts
-// 
+//
 
-window.addEventListener('DOMContentLoaded', event => {
-
+function main(event) {
     // Navbar shrink function
     var navbarShrink = function () {
         const navbarCollapsible = document.body.querySelector('#mainNav');
@@ -18,7 +17,7 @@ window.addEventListener('DOMContentLoaded', event => {
 
     };
 
-    // Shrink the navbar 
+    // Shrink the navbar
     navbarShrink();
 
     // Shrink the navbar when page is scrolled
@@ -45,5 +44,11 @@ window.addEventListener('DOMContentLoaded', event => {
             }
         });
     });
+}
 
+window.addEventListener('DOMContentLoaded', event => {
+    setTimeout(() => {
+        document.getElementById('loading').remove();
+        main(event);
+    }, 2000);
 });

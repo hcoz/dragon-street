@@ -49,6 +49,23 @@ p {
     color: $phosphor-green !important;
 }
 
+#loading {
+    z-index: 10000;
+    background-color: #ffffff;
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+}
+
+#loading > .spinner-border {
+    width: 15rem;
+    height: 15rem;
+}
+
+#loading > .img-fluid {
+    width: 50%;
+}
+
 // Increase the padding on sections when screen size is greater
 // than the medium breakpoint (set by Bootstrap)
 
