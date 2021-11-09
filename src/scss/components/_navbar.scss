@@ -36,11 +36,12 @@
                 font-size: 0.95rem;
                 color: $white;
                 letter-spacing: $headings-letter-spacing;
+            }
+        }
 
-                &.active,
-                &:hover {
-                    color: $primary;
-                }
+        .nav-item:nth-child(even) {
+            .nav-link {
+                color: $green;
             }
         }
     }

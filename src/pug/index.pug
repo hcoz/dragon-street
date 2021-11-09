@@ -40,7 +40,7 @@ html(lang='en')
                 #navbarResponsive.collapse.navbar-collapse.justify-content-between
                     ul.navbar-nav.text-uppercase.mr-auto
                         li.nav-item
-                            a.nav-link(href='#features') Features
+                            a.nav-link(href='#masthead') Features
                         li.nav-item
                             a.nav-link(href='#rarity') Rarity
                         li.nav-item
@@ -57,10 +57,9 @@ html(lang='en')
                         a.btn.btn-default.btn-social(href='!#', target='_blank')
                             i.fab.fa-discord
         // Masthead
-        header.masthead
+        header#masthead.masthead
             .container
-                .row
-                    .col-md-2.col-sm-0
+                .row.justify-content-end.mb-4
                     .col-md-4.col-sm-12
                         .masthead-subheading.text-uppercase Welcome To
                         img.img-fluid.mb-4(src='assets/img/masthead/welcome-logo.png', alt='Welcome')
@@ -70,21 +69,16 @@ html(lang='en')
                     .col-md-6.col-sm-12.d-flex.justify-content-end.mb-5
                         .masthead-giphy
                             img.img-fluid(src='assets/img/masthead/dragon.gif', alt='Dragon gif')
-
-        // Features
-        section#features.page-section.py-3
-            .container.my-5
-                .text-center
-                    h2.section-heading.text-uppercase Features
-                    h3.section-subheading.text-muted Dragon who!
-                .row
-                    .col-lg-8.mx-auto.text-center
-                        h4.my-3 Ds is a collection of 10000 Dragon Street Dudes.
-                        p.text Long long time ago, they were hanging around flaming Dragon Street and now, they are here to burn the Eth Blockhain with you
-                        p.text-muted Lets get ready to join the adventure with 10000 unique individual Nft heroes
+                .row#why-section.justify-content-center.p-5
+                        .col-md-8.text-center
+                            img.img-fluid.mb-2(src='assets/img/masthead/why-header.png', alt='Why')
+                            p.text Aside from having the coolest avatar on the internet,
+                            p.text When you join our community, our members have the ability to quickly access upcoming projects and participate in various exclusive giveaways for current and upcoming projects.
+                            p.text We want to be more than just an NFT collection. Our goal is to create a long-term, community-oriented brand that benefits everyone as we grow. We will be reaching out to potential collaborators, influencers, and projects to continue to grow our metaverse and community while developing new Dragon Street brand projects.
+                            p.text Join us and let us walk these streets together!
 
         // Rarity
-        section#rarity.page-section
+        section#rarity.page-section.p-0
             .row
                 each val in [1, 2, 3, 4, 5, 6]
                     .col.px-0
