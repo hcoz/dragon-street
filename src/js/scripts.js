@@ -47,8 +47,10 @@ function main(event) {
 }
 
 window.addEventListener('DOMContentLoaded', event => {
-    setTimeout(() => {
-        document.getElementById('loading').remove();
-        main(event);
-    }, 2000);
+    // setTimeout(() => {
+    //     document.getElementById('loading').remove();
+    //     main(event);
+    // }, 2000);
+    document.getElementById('loading').remove();
+    main(event);
 });

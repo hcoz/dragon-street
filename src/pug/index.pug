@@ -60,23 +60,19 @@ html(lang='en')
         header.masthead
             .container
                 .row
+                    .col-md-2.col-sm-0
                     .col-md-4.col-sm-12
-                        .masthead-subheading.text-uppercase.text-start Welcome To
+                        .masthead-subheading.text-uppercase Welcome To
                         img.img-fluid.mb-4(src='assets/img/masthead/welcome-logo.png', alt='Welcome')
-                        p.text.text-start Brogons NFT collection of 10,000 randomly generated dragons wilding out in the streets of Ethereum Blockchain.
+                        p.text Brogons NFT collection of 10,000 randomly generated dragons wilding out in the streets of Ethereum Blockchain.
                         button.btn.btn-default(type='button')
                             img.img-fluid(src='assets/img/masthead/button-mint.png', alt='Mint')
-                    .col-md-2.col-sm-0
-                    .col-md-6.col-sm-12.d-flex.justify-content-center.mb-5
+                    .col-md-6.col-sm-12.d-flex.justify-content-end.mb-5
                         .masthead-giphy
                             img.img-fluid(src='assets/img/masthead/dragon.gif', alt='Dragon gif')
 
         // Features
         section#features.page-section.py-3
-            .row.px-4
-                each val in [1, 2, 3, 4, 5, 6]
-                    .col.px-1
-                        img.img-fluid(src='assets/img/portfolio/' + val + '.jpeg', alt='portfolio item')
             .container.my-5
                 .text-center
                     h2.section-heading.text-uppercase Features
@@ -86,57 +82,27 @@ html(lang='en')
                         h4.my-3 Ds is a collection of 10000 Dragon Street Dudes.
                         p.text Long long time ago, they were hanging around flaming Dragon Street and now, they are here to burn the Eth Blockhain with you
                         p.text-muted Lets get ready to join the adventure with 10000 unique individual Nft heroes
-            .row.px-4
-                each val in [7, 8, 9, 10, 11, 12]
-                    .col.px-1
-                        img.img-fluid(src='assets/img/portfolio/' + val + '.jpeg', alt='portfolio item')
 
         // Rarity
         section#rarity.page-section
-            .container
+            .row
+                each val in [1, 2, 3, 4, 5, 6]
+                    .col.px-0
+                        img.img-fluid(src='assets/img/portfolio/' + val + '.jpeg', alt='Portfolio item')
+            .container.my-5
                 .row
                     .col-lg-4.col-sm-6.mb-4
-                        img.img-fluid(src='assets/img/questionmark.gif', alt='rarity question mark')
+                        img.img-fluid(src='assets/img/rarity/unknown.png', alt='Rarity question mark')
                     .col-lg-8.col-sm-6.mb-4
-                        .text-center
-                            h2.section-heading.text-uppercase Rarity
-                            h3.section-subheading.text-muted If you want to rule the streets, go to Eth Blockchain and choose your hero
-                            p.text Ds Heroes are consist of Head, Face, Fur, Eye, Background traits over 150 traits showing their personalities
-                            p.text All of them are ready to heat up but some heroes are rarer then others!
-                .row
-                    .col-lg-4.col-sm-6.mb-4
-                        // Dragon 1
-                        .portfolio-item
-                            a.portfolio-link(href='#!')
-                                .portfolio-hover
-                                    .portfolio-hover-content
-                                        i.fas.fa-dragon.fa-3x
-                                img.img-fluid(src='assets/img/portfolio/1.jpeg', alt='rarity 1')
-                            .portfolio-caption
-                                .portfolio-caption-heading Warrior
-                                .portfolio-caption-subheading.text-muted Dragon 1
-                    .col-lg-4.col-sm-6.mb-4
-                        // Dragon 2
-                        .portfolio-item
-                            a.portfolio-link(href='#!')
-                                .portfolio-hover
-                                    .portfolio-hover-content
-                                        i.fas.fa-dragon.fa-3x
-                                img.img-fluid(src='assets/img/portfolio/2.jpeg', alt='rarity 2')
-                            .portfolio-caption
-                                .portfolio-caption-heading Finish
-                                .portfolio-caption-subheading.text-muted Dragon 2
-                    .col-lg-4.col-sm-6.mb-4.mb-lg-0
-                        // Dragon 3
-                        .portfolio-item
-                            a.portfolio-link(href='#!')
-                                .portfolio-hover
-                                    .portfolio-hover-content
-                                        i.fas.fa-dragon.fa-3x
-                                img.img-fluid(src='assets/img/portfolio/3.jpeg', alt='rarity 3')
-                            .portfolio-caption
-                                .portfolio-caption-heading Lines
-                                .portfolio-caption-subheading.text-muted Dragon 3
+                        img.img-fluid.mb-2(src='assets/img/rarity/header.png', alt='Rarity')
+                        p.text Brogons are created through a random algorithm that ensures each brogon is unique and different from the others, as each reflects its own personality.
+                        p.text It is no surprise that these dragons that roam the streets do so in their fashionable, vibrant outfits. Every Brogon is cool AF, but some possess very rare traits that set them apart from the rest. After all, not every dragon shoots rays from its eyes or has fur made of gold. And there are even more rare traits!
+                        p.text There will also be special 1/1 editions of Brogons!
+                        p.text We will be supported by Rarity Tools & Rarity Sniper post drop (see Roadmap).
+            .row
+                each val in [7, 8, 9, 10, 11, 12]
+                    .col.px-0
+                        img.img-fluid(src='assets/img/portfolio/' + val + '.jpeg', alt='Portfolio item')
 
         // Roadmap
         section#roadmap.page-section
