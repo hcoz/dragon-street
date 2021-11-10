@@ -3,5 +3,9 @@
 //
 
 #faq {
-    background-color: $logo-purple;
+    background: url("/assets/img/faq/background.png");
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-position: center center;
+    background-size: cover;
 }
