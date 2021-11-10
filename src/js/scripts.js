@@ -47,11 +47,8 @@ function main(event) {
 }
 
 window.addEventListener('DOMContentLoaded', event => {
-    // TODO: remove when ready!!!!!!!!!
-    // setTimeout(() => {
-    //     document.getElementById('loading').remove();
-    //     main(event);
-    // }, 2000);
-    document.getElementById('loading').remove();
-    main(event);
+    setTimeout(() => {
+        document.getElementById('loading').remove();
+        main(event);
+    }, 2000);
 });
