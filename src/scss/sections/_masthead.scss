@@ -5,7 +5,6 @@
 header.masthead {
     padding-top: 6rem + 4.5rem;
     padding-bottom: 6rem;
-    color: $white;
     background-image: url("/assets/img/masthead/background.png");
     background-repeat: no-repeat;
     background-attachment: scroll;
@@ -36,6 +35,10 @@ header.masthead {
 
     #why-section {
         background-image: url("/assets/img/masthead/splash.png");
+    }
+
+    .welcome {
+        color: $green;
     }
 }
 
