@@ -216,20 +216,20 @@ html(lang='en')
 
         // Footer
         footer.footer.py-4
-            .container
-                .row.align-items-center
-                    .col-lg-4.text-lg-start.text-light
-                        | Copyright &copy; Dragon Street 2021
-                    //- .col-lg-4.my-3.my-lg-0
-                    //-     a.btn.btn-dark.btn-social.mx-2(href='https://twitter.com/DragonStreetNFT', target='_blank')
-                    //-         i.fab.fa-twitter
-                    //-     a.btn.btn-dark.btn-social.mx-2(href='#!')
-                    //-         i.fab.fa-facebook-f
-                    //-     a.btn.btn-dark.btn-social.mx-2(href='https://www.instagram.com/dragonstreetnft', target='_blank')
-                    //-         i.fab.fa-instagram
-                    //- .col-lg-4.text-lg-end
-                    //-     a.link-dark.text-decoration-none.me-3(href='#!') Privacy Policy
-                    //-     a.link-dark.text-decoration-none(href='#!') Terms of Use
+            .container.text-center
+                .row.mt-2
+                    .col-md-12
+                        img.img-fluid(src='assets/img/footer/logo-end.png', alt='Logo footer')
+                .row.m-4.p-2
+                    .col-md-4.text-end
+                        a.btn.btn-lg.btn-purple.text-uppercase(href='https://twitter.com/DragonStreetNFT', target='_blank')
+                            | Join our Twitter
+                    .col-md-4
+                        a.btn.btn-lg.btn-green.text-uppercase(href='!#', target='_blank')
+                            | Join our Discord
+                    .col-md-4.text-start
+                        a.btn.btn-lg.btn-red.text-uppercase(href='https://www.instagram.com/dragonstreetnft', target='_blank')
+                            | Join our Instagram
 
         // Bootstrap core JS
         script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js')

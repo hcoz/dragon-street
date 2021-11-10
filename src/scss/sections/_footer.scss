@@ -3,8 +3,26 @@
 //
 
 .footer {
-    text-align: center;
-    font-size: 0.9rem;
-    font-family: $headings-font-family;
-    background-color: $alt-grey;
+    background-image: url("/assets/img/footer/background.png");
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-position: center center;
+    background-size: cover;
+
+    .btn-lg {
+        color: $white;
+        border-radius: 25px;
+    }
+
+    .btn-purple {
+        background-color: $magenta;
+    }
+
+    .btn-green {
+        background-color: $green;
+    }
+
+    .btn-red {
+        background-color: $skate-red;
+    }
 }
