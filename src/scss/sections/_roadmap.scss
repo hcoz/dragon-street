@@ -8,4 +8,36 @@
     background-attachment: scroll;
     background-position: center center;
     background-size: cover;
+
+    .member-info-1 {
+        background-color: $green;
+
+        h4 {
+            color: $magenta;
+        }
+
+        p {
+            color: $white;
+        }
+    }
+
+    .member-info-2 {
+        background-color: $black;
+
+        h4 {
+            color: $green;
+        }
+
+        p {
+            color: $white;
+        }
+    }
+
+    .member-info-3 {
+        background-color: $magenta;
+
+        p {
+            color: $white;
+        }
+    }
 }
