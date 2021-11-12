@@ -47,6 +47,8 @@ function main(event) {
 }
 
 window.addEventListener('DOMContentLoaded', event => {
+    console.log(`Developed by hco: https://halilcanozcelik.com`);
+
     setTimeout(() => {
         document.getElementById('loading').remove();
         main(event);

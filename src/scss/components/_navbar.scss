@@ -8,10 +8,8 @@
     background-color: $logo-purple;
 
     .navbar-toggler {
-
         padding: 0.75rem;
         font-size: 0.75rem;
-        font-family: $headings-font-family;
         text-transform: uppercase;
         font-weight: $font-weight-bold;
     }
@@ -19,7 +17,6 @@
     .navbar-brand {
         margin-right: 5rem;
         color: $primary;
-        font-family: $headings-font-family;
         font-weight: $headings-font-weight;
         letter-spacing: $headings-letter-spacing;
         text-transform: uppercase;
@@ -32,7 +29,7 @@
     .navbar-nav {
         .nav-item {
             .nav-link {
-                font-family: $headings-font-family;
+                font-family: hackBold;
                 font-size: 0.95rem;
                 color: $white;
                 letter-spacing: $headings-letter-spacing;
