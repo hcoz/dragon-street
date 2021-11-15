@@ -73,3 +73,13 @@ p {
         padding: 9rem 0;
     }
 }
+
+@include media-breakpoint-down(md) {
+    p {
+        font-size: 0.75rem;
+    }
+
+    .subheading {
+        font-size: 1rem;
+    }
+}
