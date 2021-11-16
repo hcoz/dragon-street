@@ -5,3 +5,9 @@
 #rarity {
     background-color: $alt-green;
 }
+
+@include media-breakpoint-down(md) {
+    .rarity-header {
+        text-align: center !important;
+    }
+}
