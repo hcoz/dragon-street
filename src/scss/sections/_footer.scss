@@ -3,7 +3,7 @@
 //
 
 .footer {
-    background-image: url("/assets/img/footer/background.jpg");
+    background-image: url("/assets/img/footer/background.png");
     background-repeat: no-repeat;
     background-attachment: scroll;
     background-position: center center;
@@ -25,5 +25,9 @@
 
     .btn-red {
         background-color: $skate-red;
+    }
+
+    .logo-end {
+        max-width: 80%;
     }
 }
