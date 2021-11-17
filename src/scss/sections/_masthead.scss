@@ -32,11 +32,7 @@ header.masthead {
     }
 
     #why-section {
-        background-image: url("/assets/img/masthead/splash.png");
-        background-repeat: no-repeat;
-        background-attachment: scroll;
-        background-position: center center;
-        background-size: cover;
+        color: $phosphor-green;
     }
 
     .mint-btn {
@@ -70,14 +66,6 @@ header.masthead {
             line-height: 4.5rem;
             margin-bottom: 4rem;
             color: $phosphor-green;
-        }
-
-        #why-section {
-            background-image: url("/assets/img/masthead/splash.png");
-            background-repeat: no-repeat;
-            background-attachment: scroll;
-            background-position: center center;
-            background-size: cover;
         }
     }
 }
