@@ -52,5 +52,5 @@ window.addEventListener('DOMContentLoaded', event => {
     setTimeout(() => {
         document.getElementById('loading').remove();
         main(event);
-    }, 2000);
+    }, 3000);
 });
