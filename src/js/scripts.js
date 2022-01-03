@@ -4,7 +4,7 @@
 
 function main(event) {
     // Navbar shrink function
-    var navbarShrink = function () {
+    const navbarShrink = function () {
         const navbarCollapsible = document.body.querySelector('#mainNav');
         if (!navbarCollapsible) {
             return;
@@ -44,6 +44,14 @@ function main(event) {
             }
         });
     });
+
+    // Google Analytics
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'G-4DMD7JWB8S');
 }
 
 window.addEventListener('DOMContentLoaded', event => {
