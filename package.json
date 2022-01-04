@@ -35,7 +35,7 @@
         "express": "^4.17.1"
     },
     "devDependencies": {
-        "@nomiclabs/hardhat-ethers": "^2.0.2",
+        "@nomiclabs/hardhat-ethers": "^2.0.3",
         "autoprefixer": "10.3.6",
         "browser-sync": "2.27.5",
         "chokidar": "3.5.2",
