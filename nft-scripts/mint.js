@@ -15,7 +15,7 @@ async function main() {
 
     try {
         // Creatures issued directly to the owner.
-        for (var i = 0; i < 12; i++) {
+        for (var i = 0; i < 5; i++) {
             const result = await nftContract.methods
                 .mintTo(OWNER_ADDRESS)
                 .send({ from: OWNER_ADDRESS });
