@@ -1,29 +1,23 @@
 // Contract based on [https://docs.openzeppelin.com/contracts/3.x/erc721](https://docs.openzeppelin.com/contracts/3.x/erc721)
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.3;
+pragma solidity ^0.8.0;
 
-import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
-import "@openzeppelin/contracts/utils/Counters.sol";
-import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
+import "./ERC721Tradable.sol";
 
-contract DragonStreetNFT is ERC721URIStorage {
-    using Counters for Counters.Counter;
-    Counters.Counter private _tokenIds;
+/**
+ * @title Creature
+ * Creature - a contract for my non-fungible creatures.
+ */
+contract DragonStreetNFT is ERC721Tradable {
+    constructor(address _proxyRegistryAddress)
+        ERC721Tradable("DragonStreetNFT", "DSN", _proxyRegistryAddress)
+    {}
 
-    constructor() ERC721("DragonStreetNFT", "NFT") {}
+    function baseTokenURI() override public pure returns (string memory) {
+        return "https://creatures-api.opensea.io/api/creature/";
+    }
 
-    function mintNFT(address recipient, string memory tokenURI)
-        public payable
-        returns (uint256)
-    {
-        require(msg.value >= 10, "Not enough ETH sent; check price!");
-
-        _tokenIds.increment();
-
-        uint256 newItemId = _tokenIds.current();
-        _mint(recipient, newItemId);
-        _setTokenURI(newItemId, tokenURI);
-
-        return newItemId;
+    function contractURI() public pure returns (string memory) {
+        return "https://creatures-api.opensea.io/contract/opensea-creatures";
     }
 }

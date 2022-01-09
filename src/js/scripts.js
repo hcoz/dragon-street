@@ -1,7 +1,3 @@
-//
-// Scripts
-//
-
 function main(event) {
     // Navbar shrink function
     const navbarShrink = function () {
@@ -54,11 +50,16 @@ function main(event) {
     gtag('config', 'G-4DMD7JWB8S');
 }
 
+function nft(event) {
+
+}
+
 window.addEventListener('DOMContentLoaded', event => {
-    console.log(`Developed by hco: https://halilcanozcelik.com`);
+    console.log('Developed by hco: https://halilcanozcelik.com');
 
     setTimeout(() => {
         document.getElementById('loading').remove();
         main(event);
+        nft(event);
     }, 3000);
 });
