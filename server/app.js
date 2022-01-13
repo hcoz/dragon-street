@@ -10,7 +10,7 @@ app.get('/api/dragon/:txHash', function (req, res, next) {
     const txHash = req.params.txHash;
 
     try {
-        const filePath = path.resolve(`./meta/dragons.json`);
+        const filePath = path.resolve('./meta/dragons.json');
         const metaFile = fs.readFileSync(filePath);
         const dragons = JSON.parse(metaFile);
         const url = dragons.list[0].url;
