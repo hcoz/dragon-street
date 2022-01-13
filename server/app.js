@@ -2,18 +2,16 @@ const express = require('express');
 const app = express();
 const port = process.env.PORT || 3000;
 
-if (!process.env.PWD) {
-    process.env.PWD = process.cwd();
-}
-
 app.use(express.static('dist'));
 
 app.get('/api/dragon/:txHash', function (req, res, next) {
     const fs = require('fs');
+    const path = require('path');
     const txHash = req.params.txHash;
 
     try {
-        const metaFile = fs.readFileSync(`${process.env.PWD}\\meta\\dragons.json`);
+        const filePath = path.resolve(`./meta/dragons.json`);
+        const metaFile = fs.readFileSync(filePath);
         const dragons = JSON.parse(metaFile);
         const url = dragons.list[0].url;
         const data = {
