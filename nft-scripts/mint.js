@@ -15,12 +15,13 @@ async function main() {
 
     try {
         // Creatures issued directly to the owner.
-        for (var i = 0; i < 5; i++) {
-            const result = await nftContract.methods
-                .mintTo(OWNER_ADDRESS)
-                .send({ from: OWNER_ADDRESS });
-            console.log('Minted creature. Transaction: ' + result.transactionHash);
-        }
+        const result = await nftContract.methods
+            .mintTo('0x3eADCef70855Bf84A48142F219A46E0713ab5F1C') // customer wallet address
+            .send({
+                from: OWNER_ADDRESS,
+                value: web3.utils.toWei('0.05')
+            });
+        console.log('Minted creature. Transaction: ' + result.transactionHash);
     } catch (error) {
         console.log('error: ', error);
     }

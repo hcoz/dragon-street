@@ -1,5 +1,5 @@
 require('dotenv').config();
-const { API_URL, MNEMONIC } = process.env;
+const { OWNER_ADDRESS, MNEMONIC, API_URL } = process.env;
 const HDWalletProvider = require('@truffle/hdwallet-provider');
 
 module.exports = {
@@ -10,12 +10,29 @@ module.exports = {
             network_id: '*'
         },
         mumbai: {
-            provider: function () {
-                return new HDWalletProvider(MNEMONIC, API_URL)
-            },
+            provider: () => new HDWalletProvider(MNEMONIC, API_URL),
+            from: OWNER_ADDRESS,
             network_id: 80001,
-            gas: 5000000
-        }
+            confirmations: 2,
+            timeoutBlocks: 200,
+            skipDryRun: true
+        },
+        // mumbai: {
+        //     provider: () => new HDWalletProvider(MNEMONIC, 'https://rpc-mumbai.maticvigil.com/v1/1c698d35dd607e60eeb43b31ccd8cd0b4621b174'),
+        //     from: OWNER_ADDRESS,
+        //     network_id: 80001,
+        //     confirmations: 2,
+        //     timeoutBlocks: 200,
+        //     skipDryRun: true
+        // },
+        // matic: {
+        //     provider: () => new HDWalletProvider(MNEMONIC, 'https://rpc-mainnet.maticvigil.com/v1/1c698d35dd607e60eeb43b31ccd8cd0b4621b174'),
+        //     from: OWNER_ADDRESS,
+        //     network_id: 80001,
+        //     confirmations: 2,
+        //     timeoutBlocks: 200,
+        //     skipDryRun: true
+        // }
     },
     compilers: {
         solc: {

@@ -14,7 +14,6 @@ contract DragonStreetNFT is ERC721Tradable {
     {}
 
     function baseTokenURI() override public pure returns (string memory) {
-        // return "https://creatures-api.opensea.io/api/creature/";
         return "https://dragonstreetnft.com/api/dragon/";
     }
 
