@@ -4,6 +4,17 @@ const port = process.env.PORT || 3000;
 
 app.use(express.static('dist'));
 
+app.get('/api/contract-meta', function (req, res, next) {
+    res.json({
+        name: 'Dragon Street',
+        description: 'Dragon Street creatures for fun.',
+        image: 'https://dragonstreetnft.com/dragonstreet.png',
+        external_link: 'https://dragonstreetnft.com'
+    });
+
+    next();
+});
+
 app.get('/api/dragon/:txHash', function (req, res, next) {
     const fs = require('fs');
     const path = require('path');
