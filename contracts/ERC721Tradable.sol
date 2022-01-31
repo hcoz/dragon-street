@@ -7,6 +7,7 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
 import "@openzeppelin/contracts/utils/Strings.sol";
 import "@openzeppelin/contracts/utils/math/SafeMath.sol";
+import "@openzeppelin/contracts/security/PullPayment.sol";
 
 import "./common/meta-transactions/ContentMixin.sol";
 import "./common/meta-transactions/NativeMetaTransaction.sol";
@@ -24,9 +25,13 @@ contract ProxyRegistry {
  * @title ERC721Tradable
  * ERC721Tradable - ERC721 contract that whitelists a trading address, and has minting functionality.
  */
-abstract contract ERC721Tradable is ERC721, ContextMixin, NativeMetaTransaction, Ownable {
+abstract contract ERC721Tradable is ERC721, ContextMixin, NativeMetaTransaction, Ownable, PullPayment {
     using SafeMath for uint256;
     using Counters for Counters.Counter;
+
+    // Constants
+    uint256 public constant TOTAL_SUPPLY = 10_000;
+    uint256 public constant MINT_PRICE = 0.01 ether;
 
     Counters.Counter private _nextTokenId;
     address proxyRegistryAddress;
@@ -46,10 +51,19 @@ abstract contract ERC721Tradable is ERC721, ContextMixin, NativeMetaTransaction,
      * @dev Mints a token to an address with a tokenURI.
      * @param _to address of the future owner of the token
      */
-    function mintTo(address _to) public onlyOwner {
+    function mintTo(address _to) public onlyOwner payable {
         uint256 currentTokenId = _nextTokenId.current();
+
+        require(currentTokenId < TOTAL_SUPPLY, "Max supply reached");
+        require(msg.value == MINT_PRICE, "Transaction value did not equal the mint price");
+
         _nextTokenId.increment();
         _safeMint(_to, currentTokenId);
+    }
+
+    /// @dev Overridden in order to make it an onlyOwner function
+    function withdrawPayments(address payable payee) public override onlyOwner virtual {
+        super.withdrawPayments(payee);
     }
 
     /**

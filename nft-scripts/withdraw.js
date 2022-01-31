@@ -12,17 +12,15 @@ async function main() {
         NFT_CONTRACT_ADDRESS,
         { gasLimit: '1000000' }
     );
-    const toAddress = '0x3eADCef70855Bf84A48142F219A46E0713ab5F1C';
 
     try {
         // Creatures issued directly to the owner.
         const result = await nftContract.methods
-            .mintTo(toAddress)
+            .withdrawPayments(OWNER_ADDRESS)
             .send({
-                from: OWNER_ADDRESS,
-                value: web3.utils.toWei('0.01', 'ether')
+                from: OWNER_ADDRESS
             });
-        console.log('Minted creature. Transaction:', result.transactionHash);
+        console.log('Withdrawed. Transaction:', result.transactionHash);
     } catch (error) {
         console.log('error: ', error);
     }

@@ -14,7 +14,8 @@
         "start:server": "node server/app.js",
         "start:project": "npm run build && node server/app.js",
         "contract:deploy": "npx truffle migrate --network mumbai",
-        "nft:mint": "node nft-scripts/mint.js"
+        "nft:mint": "node nft-scripts/mint.js",
+        "nft:withdraw": "node nft-scripts/withdraw.js"
     },
     "description": "Drangon Street NFTs",
     "keywords": [
