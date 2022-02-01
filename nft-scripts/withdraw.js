@@ -18,7 +18,9 @@ async function main() {
         const result = await nftContract.methods
             .withdrawPayments(OWNER_ADDRESS)
             .send({
-                from: OWNER_ADDRESS
+                from: OWNER_ADDRESS,
+                to: OWNER_ADDRESS,
+                value: web3.utils.toWei('0.01', 'ether')
             });
         console.log('Withdrawed. Transaction:', result.transactionHash);
     } catch (error) {

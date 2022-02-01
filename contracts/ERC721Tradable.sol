@@ -51,7 +51,7 @@ abstract contract ERC721Tradable is ERC721, ContextMixin, NativeMetaTransaction,
      * @dev Mints a token to an address with a tokenURI.
      * @param _to address of the future owner of the token
      */
-    function mintTo(address _to) public onlyOwner payable {
+    function mintTo(address _to) public payable {
         uint256 currentTokenId = _nextTokenId.current();
 
         require(currentTokenId < TOTAL_SUPPLY, "Max supply reached");

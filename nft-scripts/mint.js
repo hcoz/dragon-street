@@ -12,14 +12,14 @@ async function main() {
         NFT_CONTRACT_ADDRESS,
         { gasLimit: '1000000' }
     );
-    const toAddress = '0x3eADCef70855Bf84A48142F219A46E0713ab5F1C';
+    const toAddress = '0x6Bd601761541c2CcA6a8aB352Da4b111246b0c18';
 
     try {
         // Creatures issued directly to the owner.
         const result = await nftContract.methods
             .mintTo(toAddress)
             .send({
-                from: OWNER_ADDRESS,
+                from: toAddress,
                 value: web3.utils.toWei('0.01', 'ether')
             });
         console.log('Minted creature. Transaction:', result.transactionHash);
