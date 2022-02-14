@@ -62,31 +62,41 @@ function nft(event) {
         return;
     }
 
-    if (ethereum.selectedAddress) {
-        console.log('ethereum.selectedAddress: ', ethereum.selectedAddress);
-        ctaButton.innerText = 'MINT';
+    // helper functions
+    function handleAccountsChange(accounts) {
+        if (accounts.length === 0) {
+            ctaButton.innerText = 'Please install Metamask';
+            ctaButton.dataset.state = 'connect';
+        } else if (accounts[0] !== currentAccount) {
+            currentAccount = accounts[0];
+            ctaButton.innerText = 'MINT';
+            ctaButton.dataset.state = 'mint';
+        }
+
         ctaButton.disabled = false;
-        ctaButton.dataset.state = 'mint';
     }
 
-    ethereum.on('accountsChanged', function (accounts) {
-        currentAccount = accounts[0];
+    // ethereum events
+    ethereum.request({ method: 'eth_accounts' })
+        .then(handleAccountsChange);
+
+    ethereum.on('accountsChanged', handleAccountsChange);
+
+    ethereum.on('chainChanged', () => {
+        window.location.reload();
     });
 
+    // DOM events
     ctaButton.addEventListener('click', () => {
         ctaButton.disabled = true;
+
         if (ctaButton.dataset.state === 'mint' && currentAccount) {
-            // mint NFT
+            // mint an NFT
 
         } else {
-            // connect account
+            // connect to an account
             ethereum.request({ method: 'eth_requestAccounts' })
-                .then(accounts => {
-                    currentAccount = accounts[0];
-                    ctaButton.innerText = 'MINT';
-                    ctaButton.disabled = false;
-                    ctaButton.dataset.state = 'mint';
-                });
+                .then(handleAccountsChange);
         }
     });
 }
