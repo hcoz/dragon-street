@@ -65,7 +65,7 @@ function nft(event) {
     // helper functions
     function handleAccountsChange(accounts) {
         if (accounts.length === 0) {
-            ctaButton.innerText = 'Please install Metamask';
+            ctaButton.innerText = 'Connect your wallet';
             ctaButton.dataset.state = 'connect';
         } else if (accounts[0] !== currentAccount) {
             currentAccount = accounts[0];
