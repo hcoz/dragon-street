@@ -53,12 +53,42 @@ function main(event) {
 function nft(event) {
     const ctaButton = document.getElementById('ctaButton');
     const metamaskLink = document.getElementById('downloadMetamask');
+    const ethereum = window.ethereum;
+    let currentAccount;
 
-    if (!window.ethereum) {
+    if (!ethereum) {
         ctaButton.hidden = true;
         metamaskLink.hidden = false;
         return;
     }
+
+    if (ethereum.selectedAddress) {
+        console.log('ethereum.selectedAddress: ', ethereum.selectedAddress);
+        ctaButton.innerText = 'MINT';
+        ctaButton.disabled = false;
+        ctaButton.dataset.state = 'mint';
+    }
+
+    ethereum.on('accountsChanged', function (accounts) {
+        currentAccount = accounts[0];
+    });
+
+    ctaButton.addEventListener('click', () => {
+        ctaButton.disabled = true;
+        if (ctaButton.dataset.state === 'mint' && currentAccount) {
+            // mint NFT
+
+        } else {
+            // connect account
+            ethereum.request({ method: 'eth_requestAccounts' })
+                .then(accounts => {
+                    currentAccount = accounts[0];
+                    ctaButton.innerText = 'MINT';
+                    ctaButton.disabled = false;
+                    ctaButton.dataset.state = 'mint';
+                });
+        }
+    });
 }
 
 window.addEventListener('DOMContentLoaded', event => {
