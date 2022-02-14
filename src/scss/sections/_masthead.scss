@@ -47,6 +47,13 @@ header.masthead {
     .pitch {
         font-family: HackBold;
     }
+
+    .btn-cta {
+        background-color: $phosphor-green;
+        color: $white;
+        width: 100%;
+        border-radius: 25px;
+    }
 }
 
 @include media-breakpoint-up(md) {

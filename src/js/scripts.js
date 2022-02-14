@@ -51,7 +51,14 @@ function main(event) {
 }
 
 function nft(event) {
+    const ctaButton = document.getElementById('ctaButton');
+    const metamaskLink = document.getElementById('downloadMetamask');
 
+    if (!window.ethereum) {
+        ctaButton.hidden = true;
+        metamaskLink.hidden = false;
+        return;
+    }
 }
 
 window.addEventListener('DOMContentLoaded', event => {
