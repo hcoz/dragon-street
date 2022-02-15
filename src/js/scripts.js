@@ -1,3 +1,21 @@
+function loadContract() {
+    window.fetch('/api/contract').then(res => res.json())
+        .then(res => {
+            if (res.success) {
+                let contractEl = document.getElementById('contract');
+                if (!contractEl) {
+                    contractEl = document.createElement('div');
+                }
+                contractEl.hidden = true;
+                contractEl.dataset.abi = JSON.stringify(res.data);
+                document.body.appendChild(contractEl);
+            }
+        })
+        .catch(error => {
+            console.error(error);
+        });
+}
+
 function main(event) {
     // Navbar shrink function
     const navbarShrink = function () {
@@ -103,6 +121,8 @@ function nft(event) {
 
 window.addEventListener('DOMContentLoaded', event => {
     console.log('Developed by hco: https://halilcanozcelik.com');
+
+    loadContract();
 
     setTimeout(() => {
         document.getElementById('loading').remove();

@@ -24,12 +24,36 @@ app.get('/api/dragon/:txHash', function (req, res, next) {
         const filePath = path.resolve('./meta/dragons.json');
         const metaFile = fs.readFileSync(filePath);
         const dragons = JSON.parse(metaFile);
+        // TODO: return related metadata URL by txHash
         const url = dragons.list[0].url;
         const data = {
             [txHash]: url
         };
         console.log('data:', JSON.stringify(data));
         res.redirect(url);
+    } catch (error) {
+        console.log('error: ', error);
+        res.json({
+            success: false,
+            message: error.message
+        });
+    }
+
+    next();
+});
+
+app.get('/api/contract', function (req, res, next) {
+    const fs = require('fs');
+    const path = require('path');
+
+    try {
+        const filePath = path.resolve('./build/contracts/DragonStreetNFT.json');
+        const contractFile = fs.readFileSync(filePath);
+
+        res.json({
+            success: true,
+            data: contractFile
+        });
     } catch (error) {
         console.log('error: ', error);
         res.json({

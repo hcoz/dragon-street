@@ -54,6 +54,12 @@ header.masthead {
         width: 100%;
         border-radius: 25px;
     }
+
+    .btn-cta[data-state="mint"] {
+        letter-spacing: .2rem;
+        font-size: 1.5rem;
+        font-weight: 700;
+    }
 }
 
 @include media-breakpoint-up(md) {
