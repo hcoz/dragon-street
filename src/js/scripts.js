@@ -1,21 +1,3 @@
-function loadContract() {
-    window.fetch('/api/contract').then(res => res.json())
-        .then(res => {
-            if (res.success) {
-                let contractEl = document.getElementById('contract');
-                if (!contractEl) {
-                    contractEl = document.createElement('div');
-                }
-                contractEl.hidden = true;
-                contractEl.dataset.abi = JSON.stringify(res.data);
-                document.body.appendChild(contractEl);
-            }
-        })
-        .catch(error => {
-            console.error(error);
-        });
-}
-
 function main(event) {
     // Navbar shrink function
     const navbarShrink = function () {
@@ -94,6 +76,31 @@ function nft(event) {
         ctaButton.disabled = false;
     }
 
+    function mintNft() {
+        window.fetch('/api/mint-nft', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ receiver: currentAccount })
+        }).then(res => res.json())
+            .then(res => {
+                if (res.success) {
+                    alert(`You minted: ${res.transactionHash}`);
+                } else {
+                    throw Error();
+                }
+            })
+            .catch(error => {
+                console.error('error: ', error);
+                alert('An error occured :( Please try again.');
+            })
+            .finally(() => {
+                ctaButton.disabled = false;
+            });
+    }
+
     // ethereum events
     ethereum.request({ method: 'eth_accounts' })
         .then(handleAccountsChange);
@@ -110,7 +117,7 @@ function nft(event) {
 
         if (ctaButton.dataset.state === 'mint' && currentAccount) {
             // mint an NFT
-
+            mintNft();
         } else {
             // connect to an account
             ethereum.request({ method: 'eth_requestAccounts' })
@@ -121,8 +128,6 @@ function nft(event) {
 
 window.addEventListener('DOMContentLoaded', event => {
     console.log('Developed by hco: https://halilcanozcelik.com');
-
-    loadContract();
 
     setTimeout(() => {
         document.getElementById('loading').remove();

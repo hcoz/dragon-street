@@ -3,6 +3,8 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 app.use(express.static('dist'));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 app.get('/api/contract-meta', function (req, res, next) {
     res.json({
@@ -59,6 +61,38 @@ app.get('/api/contract', function (req, res, next) {
         res.json({
             success: false,
             message: error.message
+        });
+    }
+
+    next();
+});
+
+app.post('/api/mint-nft', async function (req, res, next) {
+    const receiver = req.body.receiver;
+
+    if (!receiver) {
+        res.json({
+            success: false
+        });
+        next();
+        return;
+    }
+
+    try {
+        const mintNft = require('./mint.js');
+        const transactionHash = await mintNft(receiver);
+
+        if (!transactionHash) {
+            throw Error();
+        }
+
+        res.json({
+            success: true,
+            transactionHash: transactionHash
+        });
+    } catch (error) {
+        res.json({
+            success: false
         });
     }
 

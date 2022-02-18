@@ -4,7 +4,7 @@ const { createAlchemyWeb3 } = require('@alch/alchemy-web3');
 const HDWalletProvider = require('@truffle/hdwallet-provider');
 const contract = require('../build/contracts/DragonStreetNFT.json');
 
-async function main() {
+async function main(receiver) {
     const provider = new HDWalletProvider(MNEMONIC, API_URL);
     const web3 = createAlchemyWeb3(API_URL, { writeProvider: provider });
     const nftContract = new web3.eth.Contract(
@@ -12,20 +12,22 @@ async function main() {
         NFT_CONTRACT_ADDRESS,
         { gasLimit: '1000000' }
     );
-    const toAddress = '0x6Bd601761541c2CcA6a8aB352Da4b111246b0c18';
 
     try {
         // Creatures issued directly to the owner.
         const result = await nftContract.methods
-            .mintTo(toAddress)
+            .mintTo(receiver)
             .send({
-                from: toAddress,
+                from: receiver,
                 value: web3.utils.toWei('0.01', 'ether')
             });
         console.log('Minted creature. Transaction:', result.transactionHash);
+
+        return result.transactionHash;
     } catch (error) {
         console.log('error: ', error);
+        return null;
     }
 }
 
-main();
+module.exports = main;
