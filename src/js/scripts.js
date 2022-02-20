@@ -77,6 +77,14 @@ function nft(event) {
     }
 
     function mintNft() {
+        const modal = new bootstrap.Modal(document.getElementById('modal'));
+        const modalTitle = document.getElementById('modal-title');
+        const modalBody = document.getElementById('modal-body');
+        const modalCta = document.getElementById('modal-cta');
+        const progress = document.getElementById('progress');
+
+        modal.show();
+
         window.fetch('/api/mint-nft', {
             method: 'POST',
             headers: {
@@ -87,14 +95,23 @@ function nft(event) {
         }).then(res => res.json())
             .then(res => {
                 if (res.success) {
-                    alert(`You minted: ${res.transactionHash}`);
+                    const link = `https://mumbai.polygonscan.com/tx/${res.transactionHash}`;
+                    progress.hidden = true;
+                    modalTitle.innerText = 'Yess!';
+                    modalBody.innerHTML = `You can view your Bragon via <a href="${link}" target="_blank">this transaction link</a>`;
+                    modalCta.innerText = 'Go to Bragon';
+                    modalCta.href = link;
+                    modalCta.target = '_blank';
                 } else {
-                    throw Error();
+                    throw Error(res.error);
                 }
             })
             .catch(error => {
-                console.error('error: ', error);
-                alert('An error occured :( Please try again.');
+                progress.hidden = true;
+                modalTitle.innerText = 'Oops!';
+                modalBody.innerText = 'There is an error occured :( Please try again.';
+                modalCta.innerText = 'Close';
+                modalCta.dataset.bsDismiss = 'modal';
             })
             .finally(() => {
                 ctaButton.disabled = false;
@@ -116,7 +133,6 @@ function nft(event) {
         ctaButton.disabled = true;
 
         if (ctaButton.dataset.state === 'mint' && currentAccount) {
-            // mint an NFT
             mintNft();
         } else {
             // connect to an account

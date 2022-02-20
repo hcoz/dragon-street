@@ -216,6 +216,19 @@ html(lang='en')
                             | Plans for new art collections and a merchandise store are in the works, but that's not all.
                             | We can not wait to collaborate with our community and take new directions that meet our community's desires.
 
+        // Modal
+        #modal.modal.fade
+            .modal-dialog.modal-dialog-centered
+                .modal-content
+                    .modal-header
+                        h5.modal-title(id='modal-title') Wait please
+                        button.btn-close(type='button', data-bs-dismiss='modal', aria-label='Close')
+                    .modal-body(id='modal-body')
+                        #progress.progress
+                            .progress-bar.progress-bar-striped.progress-bar-animated(role='progressbar', style='width: 100%', aria-valuenow='100', aria-valuemin='0', aria-valuemax='100')
+                    .modal-footer
+                        a.btn.btn-primary(id='modal-cta', type='button') Minting...
+
         // Footer
         footer.footer.py-4
             .container.text-center

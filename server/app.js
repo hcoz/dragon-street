@@ -92,7 +92,8 @@ app.post('/api/mint-nft', async function (req, res, next) {
         });
     } catch (error) {
         res.json({
-            success: false
+            success: false,
+            error: error.message
         });
     }
 
