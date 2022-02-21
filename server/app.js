@@ -21,6 +21,7 @@ app.get('/api/dragon/:txHash', function (req, res, next) {
     const fs = require('fs');
     const path = require('path');
     const txHash = req.params.txHash;
+    console.log('txHash: ', txHash);
 
     try {
         const filePath = path.resolve('./meta/dragons.json');
