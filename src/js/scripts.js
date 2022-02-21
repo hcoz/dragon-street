@@ -83,6 +83,10 @@ function nft(event) {
         const modalCta = document.getElementById('modal-cta');
         const progress = document.getElementById('progress');
 
+        modalTitle.innerText = 'Wait please';
+        modalBody.innerText = '';
+        modalCta.innerText = 'Minting...';
+        progress.hidden = false;
         modal.show();
 
         window.fetch('/api/mint-nft', {
@@ -102,6 +106,7 @@ function nft(event) {
                     modalCta.innerText = 'Go to Bragon';
                     modalCta.href = link;
                     modalCta.target = '_blank';
+                    modal.show();
                 } else {
                     throw Error(res.error);
                 }
@@ -112,6 +117,7 @@ function nft(event) {
                 modalBody.innerText = 'There is an error occured :( Please try again.';
                 modalCta.innerText = 'Close';
                 modalCta.dataset.bsDismiss = 'modal';
+                modal.show();
             })
             .finally(() => {
                 ctaButton.disabled = false;
@@ -149,5 +155,5 @@ window.addEventListener('DOMContentLoaded', event => {
         document.getElementById('loading').remove();
         main(event);
         nft(event);
-    }, 3000);
+    }, 0);
 });
