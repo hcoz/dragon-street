@@ -17,23 +17,35 @@ app.get('/api/contract-meta', function (req, res, next) {
     next();
 });
 
-app.get('/api/dragon/:txHash', function (req, res, next) {
+app.get('/api/dragon/:tokenId', function (req, res, next) {
     const fs = require('fs');
     const path = require('path');
-    const txHash = req.params.txHash;
-    console.log('txHash: ', txHash);
+    const tokenId = req.params.tokenId;
 
     try {
         const filePath = path.resolve('./meta/dragons.json');
         const metaFile = fs.readFileSync(filePath);
         const dragons = JSON.parse(metaFile);
-        // TODO: return related metadata URL by txHash
-        const url = dragons.list[0].url;
-        const data = {
-            [txHash]: url
-        };
-        console.log('data:', JSON.stringify(data));
-        res.redirect(url);
+        let newborn;
+        let len = dragons.length;
+        let i = 0;
+        for (;i < len; i++) {
+            if (!dragons[i].isSold) {
+                newborn = dragons[i];
+                break;
+            }
+        }
+
+        if (newborn && newborn.url) {
+            // update meta file
+            dragons[i].tokenId = tokenId;
+            dragons[i].isSold = true;
+            fs.writeFileSync(filePath, JSON.stringify(dragons));
+
+            res.redirect(newborn.url);
+        } else {
+            throw Error('cannot find a newborn dragon');
+        }
     } catch (error) {
         console.log('error: ', error);
         res.json({
