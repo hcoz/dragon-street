@@ -46,6 +46,11 @@ app.get('/api/dragon/:txHash', function (req, res, next) {
 });
 
 app.get('/api/contract', function (req, res, next) {
+    console.log('typeof MINT_AVAILABLE: ', typeof  process.env.MINT_AVAILABLE);
+    if (process.env.MINT_AVAILABLE !== 'true') {
+        next();
+        return;
+    }
     const fs = require('fs');
     const path = require('path');
 
