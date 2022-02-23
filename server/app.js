@@ -58,7 +58,6 @@ app.get('/api/dragon/:tokenId', function (req, res, next) {
 });
 
 app.get('/api/contract', function (req, res, next) {
-    console.log('typeof MINT_AVAILABLE: ', typeof  process.env.MINT_AVAILABLE);
     if (process.env.MINT_AVAILABLE !== 'true') {
         next();
         return;
@@ -101,7 +100,7 @@ app.post('/api/mint-nft', async function (req, res, next) {
         const transactionHash = await mintNft(receiver);
 
         if (!transactionHash) {
-            throw Error();
+            throw Error('no transactionHash');
         }
 
         res.json({
