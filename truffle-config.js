@@ -16,23 +16,7 @@ module.exports = {
             confirmations: 2,
             timeoutBlocks: 200,
             skipDryRun: true
-        },
-        // mumbai: {
-        //     provider: () => new HDWalletProvider(MNEMONIC, 'https://rpc-mumbai.maticvigil.com/v1/1c698d35dd607e60eeb43b31ccd8cd0b4621b174'),
-        //     from: OWNER_ADDRESS,
-        //     network_id: 80001,
-        //     confirmations: 2,
-        //     timeoutBlocks: 200,
-        //     skipDryRun: true
-        // },
-        // matic: {
-        //     provider: () => new HDWalletProvider(MNEMONIC, 'https://rpc-mainnet.maticvigil.com/v1/1c698d35dd607e60eeb43b31ccd8cd0b4621b174'),
-        //     from: OWNER_ADDRESS,
-        //     network_id: 80001,
-        //     confirmations: 2,
-        //     timeoutBlocks: 200,
-        //     skipDryRun: true
-        // }
+        }
     },
     compilers: {
         solc: {
